@@ -4,9 +4,9 @@
 
   const sales_subscription = supabase
     .from('demo-realtime')
-    .on('INSERT', (payload) => {
+    .on('INSERT', (data) => {
       sales += 1
-      last_sale = payload.new.amount
+      last_sale = data.new.amount
       revenue += last_sale
     })
     .subscribe()
